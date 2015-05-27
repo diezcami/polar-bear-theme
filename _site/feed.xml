@@ -6,8 +6,8 @@
 </description>
     <link>http://username.github.io/</link>
     <atom:link href="http://username.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 25 May 2015 18:48:52 +0800</pubDate>
-    <lastBuildDate>Mon, 25 May 2015 18:48:52 +0800</lastBuildDate>
+    <pubDate>Wed, 27 May 2015 18:18:52 +0800</pubDate>
+    <lastBuildDate>Wed, 27 May 2015 18:18:52 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -22,8 +22,6 @@
 &lt;li&gt;Go to &lt;code&gt;css/main.scss&lt;/code&gt; and edit &lt;code&gt;brand-color&lt;/code&gt; to any color you want to change the header color! If you want to use an image instead, check out &lt;code&gt;_sass/_layout.scss&lt;/code&gt; and edit line 6. &lt;/li&gt;
 &lt;li&gt;Delete these icky filler posts.&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;Visit my blog at &lt;a href=&quot;http://diezcami.github.io&quot;&gt;http://diezcami.github.io&lt;/a&gt; for a live demo of the layout with actual content! Happy hacking!&lt;/p&gt;
 </description>
         <pubDate>Mon, 25 May 2015 00:00:00 +0800</pubDate>
         <link>http://username.github.io/2015/05/25/hello.html</link>

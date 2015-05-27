@@ -12,5 +12,3 @@ Here's a list of things you should probably do after installing this theme:
 * Edit `about.md` with your actual information
 * Go to `css/main.scss` and edit `brand-color` to any color you want to change the header color! If you want to use an image instead, check out `_sass/_layout.scss` and edit line 6. 
 * Delete these icky filler posts.
-
-Visit my blog at http://diezcami.github.io for a live demo of the layout with actual content! Happy hacking!
