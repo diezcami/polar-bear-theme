@@ -1,4 +1,4 @@
----
+ï»¿---
 layout: page
 title: About
 permalink: /about/
@@ -7,5 +7,5 @@ permalink: /about/
 * Author: Garim Kim
 * Github: http://github.com/garimoo
 * Instagram : @garimooooo
-* NHN¿£ÅÍÅ×ÀÎ¸ÕÆ® Åä½ºÆ® ·çÅ°5±â
-* ÀÎÇÁ¶ó ±â¼ú ºĞ¾ß
+* NHNì—”í„°í…Œì¸ë¨¼íŠ¸ í† ìŠ¤íŠ¸ ë£¨í‚¤5ê¸°
+* ì¸í”„ë¼ ê¸°ìˆ 
