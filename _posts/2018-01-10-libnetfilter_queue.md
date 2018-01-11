@@ -1,8 +1,8 @@
----
+﻿---
 layout: post
 title: "libnetfilter_queue 다운로드, nfqnl_test.c 실행"
 ---
-
+<br/>
 ## libnetlink project, libnetfilter_queue 다운로드
 
 ```
@@ -24,7 +24,8 @@ sudo make install
 
 (나는 다운로드 중에 libmnl인가? 필요하다고 해서 더 다운받았다. http://www.netfilter.org/projects/libmnl/index.html )
 
-##sample 코드 이해하기(nfqnl_test.c)
+<br/><br/>
+## sample 코드 이해하기(nfqnl_test.c)
 
 http://www.netfilter.org/projects/libnetfilter_queue/doxygen/group__LibrarySetup.html
 http://www.netfilter.org/projects/libnetfilter_queue/doxygen/group__Queue.html
@@ -234,6 +235,7 @@ int main(int argc, char **argv)
 나는 sudo 안붙혀서 계속 에러나서 이틀동안 고생했다...
 계속 error during nfq_unbind_pf()가 안된다고 하는거ㅠㅠㅠ
 알고보니 root 권한으로 실행시키면 되는 쉬운 문제였다.
+<br/><br/>
 
 암튼 이걸 실행시키기 위해서 두개의 shell이 필요하다.
 
