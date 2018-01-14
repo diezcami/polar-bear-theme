@@ -74,7 +74,13 @@
     h5 {font-size: .9em;}
     h6 {font-size: .8em;}
 
-
+    /* Strong
+     * ============================================== */
+     strong {
+         color: #202020;
+         font-weight: normal;
+         background: linear-gradient(transparent 55%, #a8e3ff 65%);
+     }
 /* Links
  * ============================================== */
     a {
