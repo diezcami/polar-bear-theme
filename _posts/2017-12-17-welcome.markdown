@@ -1,0 +1,258 @@
+---
+layout: post
+title: "2017 OSS final video and code"
+date: 2017-12-17
+categories:
+---
+https://www.youtube.com/watch?v=JvR2igu5XlU
+
+	#!/usr/bin/python
+
+	import smbus
+	import time
+	import vlc
+	import RPi.GPIO as GPIO
+	import os
+	from ftplib import FTP
+
+	ftp = FTP('192.168.0.46','root','openmediavault')
+	ftp.cwd('/asd')
+	n = []
+	n2 = []
+	ftp.retrlines('LIST',n.append)
+	for a in n:
+		k = a.split(':')[1][3:]
+		n2.append(k)print(n)
+	print(n2)
+	c = 0
+	for b in n2:
+		fn = b
+		fd = open("/home/pi/New/"+fn,'wb')
+		ftp.retrbinary("RETR "+fn,fd.write)
+		c += 1
+		print str(c)+" file(s) downloaded."
+	fd.close()
+	ftp.quit()
+	print "Download conpleted."
+
+	#GPIO SETTING
+	GPIO.setmode(GPIO.BCM)
+
+	GPIO.setup(17, GPIO.IN)
+	GPIO.setup(24, GPIO.IN)
+	GPIO.setup(22, GPIO.IN)
+	GPIO.setup(23, GPIO.IN)
+
+	#path = "/home/pi/Desktop"
+
+	#Define some device parameters
+	I2C_ADDR  = 0x27 # I2C device address
+	LCD_WIDTH = 16   # Maximum characters per line
+
+	#Define some device constants
+	LCD_CHR = 1 # Mode - Sending data
+	LCD_CMD = 0 # Mode - Sending command
+
+	LCD_LINE_1 = 0x80 # LCD RAM address for the 1st line
+	LCD_LINE_2 = 0xC0 # LCD RAM address for the 2nd line
+	LCD_LINE_3 = 0x94 # LCD RAM address for the 3rd line
+	LCD_LINE_4 = 0xD4 # LCD RAM address for the 4th line
+
+	LCD_BACKLIGHT  = 0x08  # On
+	#LCD_BACKLIGHT = 0x00  # Off
+
+	ENABLE = 0b00000100 # Enable bit
+
+	# Timing constants
+	E_PULSE = 0.0005
+	E_DELAY = 0.0005
+
+	#Open I2C interface
+	#bus = smbus.SMBus(0)  # Rev 1 Pi uses 0
+	bus = smbus.SMBus(1) # Rev 2 Pi uses 1
+
+	def lcd_init():
+		# Initialise display
+		lcd_byte(0x33,LCD_CMD) # 110011 Initialise
+		lcd_byte(0x32,LCD_CMD) # 110010 Initialise
+		lcd_byte(0x06,LCD_CMD) # 000110 Cursor move direction
+		lcd_byte(0x0C,LCD_CMD) # 001100 Display On,Cursor Off, Blink Off 
+		lcd_byte(0x28,LCD_CMD) # 101000 Data length, number of lines, font size
+		lcd_byte(0x01,LCD_CMD) # 000001 Clear display
+		time.sleep(E_DELAY)
+
+	def lcd_byte(bits, mode):
+		# Send byte to data pins
+		# bits = the data
+		# mode = 1 for data
+		#        0 for command
+		bits_high = mode | (bits & 0xF0) | LCD_BACKLIGHT
+		bits_low = mode | ((bits<<4) & 0xF0) | LCD_BACKLIGHT
+
+		# High bits
+		bus.write_byte(I2C_ADDR, bits_high)
+		lcd_toggle_enable(bits_high)
+
+		# Low bits
+		bus.write_byte(I2C_ADDR, bits_low)
+		lcd_toggle_enable(bits_low)
+
+	def lcd_toggle_enable(bits):
+		# Toggle enable
+		time.sleep(E_DELAY)
+		bus.write_byte(I2C_ADDR, (bits | ENABLE))
+		time.sleep(E_PULSE)
+		bus.write_byte(I2C_ADDR,(bits & ~ENABLE))
+		time.sleep(E_DELAY)
+
+	def lcd_string(message,line):
+		#Send string to display
+
+		message = message.ljust(LCD_WIDTH," ")
+
+		lcd_byte(line, LCD_CMD)
+
+		for i in range(LCD_WIDTH):
+			lcd_byte(ord(message[i]),LCD_CHR)
+
+	class music_player:
+
+		def __init__(self,path):
+			self.path = path
+			self.play_list = os.listdir(path)
+			self.music_number = 0
+			self.filename = self.play_list[self.music_number]
+
+			instance = vlc.Instance()
+
+			print(self.music_number)
+
+			self.player=instance.media_player_new()
+
+		def playing(self):
+			instance = vlc.Instance()
+			file1 = self.path + self.play_list[self.music_number]
+			media=instance.media_new(file1)
+			print(file1)
+
+			self.player.set_media(media)
+			self.player.play()
+			time.sleep(0.3)
+
+			(music,singer) = self.split(self.play_list[self.music_number])
+			print(music)
+			print(singer)
+			music_script, singer_script = self.script(music), self.script(singer)
+			print(music_script)
+			print(singer_script)
+			music_flip_mod = self.flip(len(music_script))
+			singer_flip_mod = self.flip(len(singer_script))
+			print(music_flip_mod)
+			print(singer_flip_mod)
+			lcd_init()
+			count1,count2 = 0,0
+			time1 = time.time()
+
+			while True:
+				self.display(count1,music_script,1)
+				self.display(count2,singer_script,2)
+				time2 = time.time()
+				if time2-time1 >= 1:
+					if not count1 == 'NULL':
+						count1 = music_flip_mod[count1]
+					if not count2 == 'NULL':
+						count2 = singer_flip_mod[count2]
+					if count1 == 'NULL' and count2 == 'NULL':
+						count1, count2 = 0, 0
+					time1 = time2
+					if self.button(self.music_number) == 'break':
+						break
+					if self.player.get_state() == 6:
+						self.music_number += 1
+						if self.music_number == len(self.play_list):
+							self.music_number = 0
+						time.sleep(0.3)
+						self.playing()
+
+	    def button(self,music_number):
+		if GPIO.input(17)==0:
+			if self.player.get_state() == 3: 
+				print("1")
+				self.player.stop()
+				time.sleep(0.3)
+				return 'break'
+
+		if GPIO.input(24)==0:
+			print("2")
+			self.player.pause()
+			time.sleep(0.3)
+
+			if GPIO.input(22)==0:
+				print("3")
+				self.player.stop()
+				self.music_number -= 1
+				if self.music_number < 0:
+					self.music_number = len(self.play_list) - 1
+				print(self.music_number)
+				time.sleep(0.3)
+				self.playing()
+
+
+			if GPIO.input(23)==0:
+				print("4")
+				self.player.stop()
+				self.music_number += 1
+				if self.music_number == len(self.play_list):
+					self.music_number = 0
+				time.sleep(0.3)
+				self.playing()
+
+		def split(self,filename):
+			new_filename = filename.split('.')[0]
+			music = new_filename.split('-')[0]
+			singer = new_filename.split('-')[1]
+			return music, singer
+
+		def script(self,text):
+			script_list = []
+			if len(text) < 16:
+				length = 16-len(text)
+				for a in range(0,length):
+					k = " "*(length-a)+text+" "*a
+					script_list.append(k)
+			elif len(text) == 16:
+				script_list.append(text)
+			elif len(text) > 16:
+				length = len(text)-16+1
+				for a in range(0,length):
+					k = text[a:17+a]
+					script_list.append(k)
+			return script_list
+
+		def flip(self,number):
+			flip_mod = {}
+			for a in range(number-1):
+				flip_mod[a] = a+1
+				flip_mod[number-1] = 'NULL'
+			return flip_mod
+
+		def display(self,count,script_list,line):
+			if not count == 'NULL':
+				if line == 1:
+					lcd_string(script_list[count],LCD_LINE_1)
+				elif line == 2:
+					lcd_string(script_list[count],LCD_LINE_2)
+
+		def main(self):
+			self.playing()
+
+
+	if __name__ == '__main__':
+
+		try:
+			PLAYER = music_player("/home/pi/New/")
+			PLAYER.main()
+		except KeyboardInterrupt:
+			pass
+		finally:
+			lcd_byte(0x01, LCD_CMD)
