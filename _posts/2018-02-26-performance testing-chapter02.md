@@ -9,7 +9,7 @@ title: "Performance Testing Guidance for Web Applications Chapter 2"
 ## Part 2 - Exemplar Performance Testing Approaches
 
 ### Chapter 4 - Web Application Performance Testing Core Activities
-![Image](./assets/chap4.PNG)
+![Image](../assets/chap4.PNG)
  - 성능 테스트는 **일률적으로** 또는 **가장 적합한 방식으로** 적용할 수 없는 복잡한 활동이다. 서비스 별로 공통적으로 수행할 수 있는 작업이 거의 없다.
 
 #### 7가지의 가장 중요한 테스팅 활동
@@ -120,7 +120,7 @@ title: "Performance Testing Guidance for Web Applications Chapter 2"
 
 <br/>
 ### Chapter 5 - Coordinating Performance Testing with an Iteration-Based Process
-![Image](./assets/chap5.PNG)
+![Image](../assets/chap5.PNG)
 - 이번 장에서는 반복적인 프로세스 내에서 성능 테스트를 수행하는 데에 필요한 활동의 기본 개념과, 프로젝트에 즉시 적용할 수 있는 구체화 가능한 항목에 대해서 설명한다.
 
 ##### __Activity 1. Understand the Project Vision and Context__
