@@ -16,7 +16,7 @@ title: "Micro Service Architecture"
 
 ### 마이크로서비스를 위한 전제 조건
 
-![Image](/assets/20180316/1.png)
+![Inline-image-2018-03-21 11.58.01.661.png](https://nhnent.dooray.com/files/2175141583683421677)
 
 ### 마이크로서비스란?
 
@@ -28,13 +28,13 @@ title: "Micro Service Architecture"
 
 ### 하나의 마이크로서비스 구성 패턴
 
-![Image](/assets/20180316/2.png)
+![Inline-image-2018-03-21 12.00.45.335.png](https://nhnent.dooray.com/files/2175142954957158769)
 
 ## 마이크로서비스 운영 시 개발 문화 베스트 프랙티스
 
 ### 마이크로서비스 아키텍처를 위한 개발 문화
 
-![Image](/assets/20180316/3.png)
+![Inline-image-2018-03-21 12.08.23.610.png](https://nhnent.dooray.com/files/2175146801553622499)
 
 ### 마이크로서비스의 이점
 
