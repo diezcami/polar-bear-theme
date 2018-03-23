@@ -1,38 +1,10 @@
 ---
 ---
 @charset "utf-8";
-/* KoPub Dotum */
-/*
-@font-face {
-  font-family: 'KoPub Dotum';
-  font-style: normal;
-  font-weight: 300;
-  src: url(//cdn.jsdelivr.net/font-kopub/1.0/KoPubDotum-Light.eot);
-  src: url(//cdn.jsdelivr.net/font-kopub/1.0/KoPubDotum-Light.eot?#iefix) format('embedded-opentype'),
-       url(//cdn.jsdelivr.net/font-kopub/1.0/KoPubDotum-Light.woff) format('woff'),
-       url(//cdn.jsdelivr.net/font-kopub/1.0/KoPubDotum-Light.ttf) format('truetype');
-}*/
-@font-face {
- font-family: 'KoPub Dotum';
- font-style: normal;
- font-weight: 400;
- src: url(//cdn.jsdelivr.net/font-kopub/1.0/KoPubDotum-Medium.eot);
- src: url(//cdn.jsdelivr.net/font-kopub/1.0/KoPubDotum-Medium.eot?#iefix) format('embedded-opentype'),
- url(//cdn.jsdelivr.net/font-kopub/1.0/KoPubDotum-Medium.woff) format('woff'),
- url(//cdn.jsdelivr.net/font-kopub/1.0/KoPubDotum-Medium.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'KoPub Dotum';
-  font-style: normal;
-  font-weight: 700;
-  src: url(//cdn.jsdelivr.net/font-kopub/1.0/KoPubDotum-Bold.eot);
-  src: url(//cdn.jsdelivr.net/font-kopub/1.0/KoPubDotum-Bold.eot?#iefix) format('embedded-opentype'),
-       url(//cdn.jsdelivr.net/font-kopub/1.0/KoPubDotum-Bold.woff) format('woff'),
-       url(//cdn.jsdelivr.net/font-kopub/1.0/KoPubDotum-Bold.ttf) format('truetype');
-}
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
 // Our variables
-$base-font-family: "KoPub Dotum";
+$base-font-family: "Nanum Gothic";
 $base-font-size:   15px;
 $small-font-size:  $base-font-size * 0.895;
 $large-font-size:  $base-font-size * 1.40;
