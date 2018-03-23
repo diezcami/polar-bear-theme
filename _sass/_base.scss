@@ -14,7 +14,7 @@
 /* Basic Styling
  * ============================================== */
     body {
-        font-family: "Nanum Gothic", sans-serif;
+        font-family: "KoPub Dotum", sans-serif;
         font-size: $base-font-size;
         line-height: $base-line-height;
         font-weight: 300;
@@ -78,8 +78,8 @@
      * ============================================== */
      strong {
          color: #202020;
-         font-weight: normal;
-         background: linear-gradient(transparent 55%, #a8e3ff 65%);
+         font-weight: bold;
+      /*   background: linear-gradient(transparent 55%, #a8e3ff 65%);*/
      }
 /* Links
  * ============================================== */
@@ -96,16 +96,9 @@
 /* Block Quotes
  * ============================================== */
     blockquote {
-        color: #BBB;
-        border-left: 4px solid $brand-color;
-        padding-left: $spacing-unit / 2;
-        font-size: 17px;
-        letter-spacing: -1px;
-        font-style: italic;
-
-        > :last-child {
-            margin-bottom: 0;
-        }
+      color: #202020;
+      font-weight: normal;
+      background: linear-gradient(transparent 55%, #a8e3ff 65%);
     }
 
 /* Code Blocks
