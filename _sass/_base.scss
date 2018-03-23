@@ -111,8 +111,7 @@
     pre,
     code {
         font-size: 13px;
-      /*  border: 1px solid $grey-color-light;*/
-        background: linear-gradient(transparent 55%, #a8e3ff 65%);
+        border: 1px solid $grey-color-light;
         font-family: 'Nanum Gothic Coding';
     }
 
@@ -135,7 +134,11 @@
             padding-left: 0;
         }
     }
-
+/*highlighter-rouge*/
+.highlighter-rouge{
+    background: linear-gradient(transparent 55%, #a8e3ff 65%);
+    border : none;
+}
 /* Wrapper
  * ============================================== */
     .wrapper {
