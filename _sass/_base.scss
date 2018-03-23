@@ -111,7 +111,8 @@
     pre,
     code {
         font-size: 13px;
-        border: 1px solid $grey-color-light;
+      /*  border: 1px solid $grey-color-light;*/
+        background: linear-gradient(transparent 55%, #a8e3ff 65%);
         font-family: 'Nanum Gothic Coding';
     }
 
