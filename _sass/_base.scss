@@ -1,6 +1,4 @@
 
-@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-@import url(//fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
 
 /* Reset Basic Elements
  * ============================================== */
@@ -96,9 +94,16 @@
 /* Block Quotes
  * ============================================== */
     blockquote {
-      color: #202020;
-      font-weight: normal;
-      background: linear-gradient(transparent 55%, #a8e3ff 65%);
+        color: #BBB;
+        border-left: 4px solid $brand-color;
+        padding-left: $spacing-unit / 2;
+        font-size: 17px;
+        letter-spacing: -1px;
+        font-style: italic;
+
+        > :last-child {
+            margin-bottom: 0;
+        }
     }
 
 /* Code Blocks
@@ -107,7 +112,6 @@
     code {
         font-size: 13px;
         border: 1px solid $grey-color-light;
-        font-family: 'Nanum Gothic Coding';
     }
 
     code {
