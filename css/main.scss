@@ -2,6 +2,7 @@
 ---
 @charset "utf-8";
 /* KoPub Dotum */
+/*
 @font-face {
   font-family: 'KoPub Dotum';
   font-style: normal;
@@ -10,7 +11,7 @@
   src: url(//cdn.jsdelivr.net/font-kopub/1.0/KoPubDotum-Light.eot?#iefix) format('embedded-opentype'),
        url(//cdn.jsdelivr.net/font-kopub/1.0/KoPubDotum-Light.woff) format('woff'),
        url(//cdn.jsdelivr.net/font-kopub/1.0/KoPubDotum-Light.ttf) format('truetype');
-}
+}*/
 @font-face {
  font-family: 'KoPub Dotum';
  font-style: normal;
@@ -32,7 +33,7 @@
 
 // Our variables
 $base-font-family: "KoPub Dotum";
-$base-font-size:   13px;
+$base-font-size:   15px;
 $small-font-size:  $base-font-size * 0.895;
 $large-font-size:  $base-font-size * 1.40;
 
