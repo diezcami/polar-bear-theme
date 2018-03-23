@@ -25,7 +25,6 @@
         padding-top: 20px;
         clear: both;
         text-transform: uppercase;
-        font-family: 'Open Sans';
 
         @include media-query($on-palm) {
             font-size:60px !important;
@@ -76,7 +75,6 @@
         padding-bottom: 3em;
         margin: auto;
         font-size: 12px;
-        font-family: Open Sans;
         color: #959595;
     }
 
@@ -106,7 +104,6 @@
     }
 
     .post-link {
-        font-family: 'Open Sans';
         font-weight: 300;
         font-size: 1.5em;
         letter-spacing: -1px;

@@ -1,6 +1,4 @@
 
-@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-@import url(//fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
 
 /* Reset Basic Elements
  * ============================================== */
@@ -14,7 +12,7 @@
 /* Basic Styling
  * ============================================== */
     body {
-        font-family: "Nanum Gothic", sans-serif;
+        font-family: "KoPub Dotum", sans-serif;
         font-size: $base-font-size;
         line-height: $base-line-height;
         font-weight: 300;
@@ -78,8 +76,8 @@
      * ============================================== */
      strong {
          color: #202020;
-         font-weight: normal;
-         background: linear-gradient(transparent 55%, #a8e3ff 65%);
+         font-weight: bold;
+      /*   background: linear-gradient(transparent 55%, #a8e3ff 65%);*/
      }
 /* Links
  * ============================================== */
@@ -114,7 +112,6 @@
     code {
         font-size: 13px;
         border: 1px solid $grey-color-light;
-        font-family: 'Nanum Gothic Coding';
     }
 
     code {
