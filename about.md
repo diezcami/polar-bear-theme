@@ -3,8 +3,11 @@ layout: page
 title: About
 permalink: /about/
 ---
-*Polar Bear* is a lightweight and customisable Jekyll Theme.
 
-* Author: Camille Diez
-* Github: http://github.com/diezcami
-* Portfolio: http://diezcami.github.io
+<!--<img src="{{ site.baseurl }}/assets/profile-placeholder.gif" title="Profile Picture" class="profile">-->
+
+* Author: Garim Kim
+* Github: [http://github.com/garimoo](http://github.com/garimoo)
+* Instagram : [@luv.rimu](https://www.instagram.com/luv.rimu/?hl=ko)
+* [NHN엔터테인먼트](https://www.nhnent.com/ko/index.nhn) 토스트 루키5기
+* DBA 꿈나무
